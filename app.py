@@ -3,7 +3,7 @@ import gradio as gr
 import os
 import torch
 
-from model import create_effnetb2_model
+from model import create_effnetb2_model,create_vit_model
 from timeit import default_timer as timer
 from typing import Tuple, Dict
 
