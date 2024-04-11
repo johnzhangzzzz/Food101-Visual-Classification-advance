@@ -8,7 +8,7 @@ from timeit import default_timer as timer
 from typing import Tuple, Dict
 
 # Setup class names
-with open("class_names.txt", "r") as f: # reading them in from class_names.txt
+with open("class_names_chinese.txt", "r") as f: # reading them in from class_names.txt
     class_names = [food_name.strip() for food_name in  f.readlines()]
     
 ### 2. Model and transforms preparation ###    
@@ -53,8 +53,8 @@ def predict(img) -> Tuple[Dict, float]:
     vit.eval()
     with torch.inference_mode():
         # Pass the transformed image through the model and turn the prediction logits into prediction probabilities
-        pred_probs = torch.softmax((effnetb2(img)+vit(img))/2, dim=1)
-    
+        pred_probs = torch.softmax((effnetb2(img_effnetb2)+vit(img_vit))/2, dim=1)
+        
     #with torch.inference_mode():
         # Pass the transformed image through the model and turn the prediction logits into prediction probabilities
         #pred_probs_vit = torch.softmax(vit(img), dim=1)
@@ -73,8 +73,11 @@ def predict(img) -> Tuple[Dict, float]:
 
 # Create title, description and article strings
 #title = "FoodVision Big 🍔👁"
-description = "An EfficientNetB2 feature extractor computer vision model to classify images of food into [101 different classes](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/extras/food101_class_names.txt)."
-article = "Created at [09. PyTorch Model Deployment](https://www.learnpytorch.io/09_pytorch_model_deployment/)."
+description = "训练集使用的food101数据集，其中包含101种不同类型食品，\
+    [原项目](https://www.learnpytorch.io/09_pytorch_model_deployment/)在测试集上的精度大约为60%，\
+    我这边主要简单的替换了其中的分类模型，使得精度提到80%以上,同时也进了中文化处理，\
+    注意此分类器只包含了101个品种的食物，如披萨，饺子，炸薯条，炒饭，巧克力慕斯等等，[详细品类详见此处](class_names_chinese.txt)."
+article = "Created at [09. PyTorch Model Deployment]."
 
 title = "食品分类器 🍔👁"
 
