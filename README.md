@@ -5,3 +5,11 @@
 [原项目](https://www.learnpytorch.io/09_pytorch_model_deployment/)在测试集上的精度大约为60%，我这边替换了其中的模型并重新训练了数据，使得精度提到80%以上，同时也对界面进了中文化处理  
 
 
+<iframe
+	src="https://john000z-foodvision-assum.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
+></iframe>
+
+
