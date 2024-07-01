@@ -110,4 +110,4 @@ demo = gr.Interface(
 )
 
 # Launch the app!
-demo.launch(share=True)
+demo.launch(share=True)()
