@@ -108,6 +108,5 @@ demo = gr.Interface(
     description=description,
     article=article,
 )
-
+demo.launch(share=True)
 # Launch the app!
-demo.launch()
